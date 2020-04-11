@@ -56,7 +56,7 @@ app.get('*', (req, res) => {
     message: '404 Route not found'
   });
 });
-const PORT = 3001 || process.env.PORT;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`server is running on http://localhost:${PORT}`));
 
 
