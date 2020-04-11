@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const handler = require('../services/request-injector');
-const getLogs = require('../controller/logs/index');
+const getLogs = require('../controller/logroute/index');
 const estimate = require('../controller/index');
 const hasAllField = require('../middleware/index');
 
