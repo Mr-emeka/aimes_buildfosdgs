@@ -10,7 +10,7 @@ const { router } = require('./routes/index');
 const xmlParser = require('express-xml-bodyparser');
 
 const app = express();
-
+require('dotenv').config();
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // cors
@@ -22,7 +22,7 @@ app.use(logger('dev'));
 // log all requests to access.log
 app.use(logger('tiny', {
     stream: fs.createWriteStream(path.join(__dirname, 'logs.log'), { flags: 'a' })
-  }));
+}));
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -37,7 +37,7 @@ app.use(xmlParser({
     explicitArray: false,
     normalizeTags: false,
     mergeAttrs: true
-  }))
+}))
 
 app.use(bodyParser.json());
 
