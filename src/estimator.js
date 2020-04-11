@@ -21,7 +21,7 @@ const covid19ImpactEstimator = (data) => {
 
   impact.currentlyInfected = data.reportedCases * 10;
   severeImpact.currentlyInfected = data.reportedCases * 50;
-  
+
   impact.infectionsByRequestedTime = impact.currentlyInfected * (2 ** requestedTime);
   severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * (2 ** requestedTime);
 
@@ -29,15 +29,15 @@ const covid19ImpactEstimator = (data) => {
   impact.severeCasesByRequestedTime = (15 / 100) * impact.infectionsByRequestedTime;
   severeImpact.severeCasesByRequestedTime = (15 / 100) * severeImpact.infectionsByRequestedTime;
 
-  impact.hospitalBedsByRequestedTime = Math.trunc((35 * 100) * data.totalHospitalBeds - impact.severeCasesByRequestedTime);
-  severeImpact.hospitalBedsByRequestedTime = Math.trunc((35 * 100) * data.totalHospitalBeds - severeImpact.severeCasesByRequestedTime);
+  impact.hospitalBedsByRequestedTime = Math.trunc((35 / 100) * data.totalHospitalBeds - impact.severeCasesByRequestedTime);
+  severeImpact.hospitalBedsByRequestedTime = Math.trunc((35 / 100) * data.totalHospitalBeds - severeImpact.severeCasesByRequestedTime);
 
   // Challenge 3
-  impact.casesForICUByRequestedTime = Math.trunc((5 * 100) * impact.infectionsByRequestedTime);
-  severeImpact.casesForICUByRequestedTime = Math.trunc((5 * 100) * severeImpact.infectionsByRequestedTime);
+  impact.casesForICUByRequestedTime = Math.trunc((5 / 100) * impact.infectionsByRequestedTime);
+  severeImpact.casesForICUByRequestedTime = Math.trunc((5 / 100) * severeImpact.infectionsByRequestedTime);
 
-  impact.casesForVentilatorsByRequestedTime = Math.trunc((2 * 100) * impact.infectionsByRequestedTime);
-  severeImpact.casesForVentilatorsByRequestedTime = Math.trunc((2 * 100) * severeImpact.infectionsByRequestedTime);
+  impact.casesForVentilatorsByRequestedTime = Math.trunc((2 / 100) * impact.infectionsByRequestedTime);
+  severeImpact.casesForVentilatorsByRequestedTime = Math.trunc((2 / 100) * severeImpact.infectionsByRequestedTime);
 
   impact.dollarsInFlight = Math.trunc((impact.infectionsByRequestedTime * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD) / days);
   severeImpact.dollarsInFlight = Math.trunc((severeImpact.infectionsByRequestedTime * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD) / days);
