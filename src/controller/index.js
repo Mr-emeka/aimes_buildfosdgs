@@ -18,7 +18,7 @@ module.exports = async (request) => {
     avgDailyIncomePopulation
   } = region;
 
-  const data = {
+  const input = {
     region: {
       name,
       avgAge,
@@ -31,17 +31,29 @@ module.exports = async (request) => {
     population,
     totalHospitalBeds
   };
+  const { data, impact, severeImpact } = covid19ImpactEstimator(input);
 
-  const result = covid19ImpactEstimator(data);
 
   if (request.headers['content-type'] === 'application/xml') {
     return new XMLResponse(201, {
       error: false,
-      message: result
+      message: {
+        data,
+        estimate: {
+          impact,
+          severeImpact
+        }
+      }
     });
   }
   return new Response(201, {
     error: false,
-    message: result
+    message: {
+      data,
+      estimate: {
+        impact,
+        severeImpact
+      }
+    }
   });
 };
