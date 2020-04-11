@@ -2,15 +2,15 @@ const formatDate = (periodType, timeToElapse) => {
   let days; let requestedTime;
   if (/week/i.test(periodType)) {
     days = timeToElapse * 7;
-    requestedTime = Math.trunc((timeToElapse * 7) / 3);
+    requestedTime = Math.trunc((days / 3));
   }
   if (/month/i.test(periodType)) {
     days = timeToElapse * 30;
-    requestedTime = Math.trunc((timeToElapse * 30) / 3);
+    requestedTime = Math.trunc((days / 3));
   }
   if (/days/i.test(periodType)) {
     days = timeToElapse;
-    requestedTime = Math.trunc(timeToElapse / 3);
+    requestedTime = Math.trunc((days / 3));
   }
   return { days, requestedTime };
 };
