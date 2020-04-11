@@ -34,7 +34,7 @@ module.exports = async (request) => {
   const { data, impact, severeImpact } = covid19ImpactEstimator(input);
 
 
-  if (request.headers['content-type'] === 'application/xml') {
+  if (request.url.includes('xml') || request.headers['content-type'] === 'application/xml') {
     return new XMLResponse(201, {
       error: false,
       message: {
