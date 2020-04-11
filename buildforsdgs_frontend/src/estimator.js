@@ -1,15 +1,15 @@
 const formatDate = (periodType, timeToElapse) => {
   let days;
-  if (/week/i.test(periodType)) {
+  if (/weeks/i.test(periodType)) {
     const value = (timeToElapse * 7) / 3;
     days = Math.trunc(value);
   }
-  if (/month/i.test(periodType)) {
+  if (/months/i.test(periodType)) {
     const value = (timeToElapse * 30) / 3;
     days = Math.trunc(value);
   }
   if (/days/i.test(periodType)) {
-    const value = timeToElapse / 3;
+    const value = (timeToElapse / 3);
     days = Math.trunc(value);
   }
   return days;
