@@ -11,7 +11,7 @@ class Response {
     this.data = data;
   }
 }
-class xmlResponse {
+class XMLResponse {
   constructor(status, data) {
     this.status = status;
     this.data = data;
@@ -20,5 +20,5 @@ class xmlResponse {
 module.exports = {
   ResponseError,
   Response,
-  xmlResponse
+  XMLResponse
 };

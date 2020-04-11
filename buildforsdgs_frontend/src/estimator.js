@@ -1,10 +1,10 @@
 const formatDate = (periodType, timeToElapse) => {
   let days;
-  if (/weeks/i.test(periodType)) {
+  if (/week/i.test(periodType)) {
     const value = (timeToElapse * 7) / 3;
     days = Math.trunc(value);
   }
-  if (/months/i.test(periodType)) {
+  if (/month/i.test(periodType)) {
     const value = (timeToElapse * 30) / 3;
     days = Math.trunc(value);
   }
@@ -48,7 +48,6 @@ const covid19ImpactEstimator = (data) => {
     impact,
     severeImpact
   };
-}
+};
 
-// export default covid19ImpactEstimator;
-module.exports = covid19ImpactEstimator;
+export default covid19ImpactEstimator;

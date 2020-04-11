@@ -1,9 +1,8 @@
-const { ResponseError, Response, xmlResponse } = require('../utils');
+const { Response, XMLResponse } = require('../utils');
 const covid19ImpactEstimator = require('../estimator');
 
 
 module.exports = async (request) => {
-  console.log(request.body);
   const {
     region,
     periodType,
@@ -36,7 +35,7 @@ module.exports = async (request) => {
   const result = covid19ImpactEstimator(data);
 
   if (request.headers['content-type'] === 'application/xml') {
-    return new xmlResponse(201, {
+    return new XMLResponse(201, {
       error: false,
       message: result
     });
