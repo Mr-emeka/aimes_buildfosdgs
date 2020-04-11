@@ -70,12 +70,9 @@ function CovidForm() {
                 <Col md={12} className="formcol">
                  Estimate for:{' '}
                     <select data-period-type value={periodType} onChange={(e)=>(setPeriodType(e.target.value))}>
-                        <option>1 day</option>
-                        <option>1  week</option>
-                        <option>2 weeks</option>
-                        <option>1 month</option>
-                        <option>6 months</option>
-                        <option>12 months</option>
+                        <option>days</option>
+                        <option>weeks</option>
+                        <option>Months</option>
                     </select>
                 </Col>
             </Row>
