@@ -1,14 +1,14 @@
 const formatDate = (periodType, timeToElapse) => {
   let days; let requestedTime;
-  if (/week/i.test(periodType)) {
+  if (/weeks/i.test(periodType)) {
     days = timeToElapse * 7;
     requestedTime = Math.trunc(days / 3);
   }
-  if (/month/i.test(periodType)) {
+  if (/months/i.test(periodType)) {
     days = timeToElapse * 30;
     requestedTime = Math.trunc(days / 3);
   }
-  if (/day/i.test(periodType)) {
+  if (/days/i.test(periodType)) {
     days = timeToElapse;
     requestedTime = Math.trunc(days / 3);
   }
@@ -23,8 +23,8 @@ const covid19ImpactEstimator = (data) => {
   impact.currentlyInfected = data.reportedCases * 10;
   severeImpact.currentlyInfected = data.reportedCases * 50;
 
-  impact.infectionsByRequestedTime = impact.currentlyInfected * Math.trunc(2 ** requestedTime);
-  severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * Math.trunc(2 ** requestedTime);
+  impact.infectionsByRequestedTime = Math.trunc(impact.currentlyInfected * (2 ** requestedTime));
+  severeImpact.infectionsByRequestedTime = Math.trunc(severeImpact.currentlyInfected * (2 ** requestedTime));
 
   // challenge 2
   impact.severeCasesByRequestedTime = (15 / 100) * impact.infectionsByRequestedTime;
