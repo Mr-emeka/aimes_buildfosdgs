@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 const express = require('express');
 const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
@@ -20,10 +21,23 @@ app.use(cors());
 // middle ware for logs
 app.use(logger('dev'));
 
-// log all requests to access.log
-app.use(logger('tiny', {
-  stream: fs.createWriteStream(path.join(__dirname, 'logs.log'), { flags: 'a' })
-}));
+// create log folder
+fs.mkdirSync(path.join(__dirname, './logs/'));
+app.use(
+  logger(
+    (tokens, req, res) => [
+      tokens.method(req, res),
+      tokens.url(req, res),
+      tokens.status(req, res),
+      parseInt(tokens['response-time'](req, res).toString()) < 10
+        ? `0${parseInt(tokens['response-time'](req, res).toString())}ms`
+        : `${parseInt(tokens['response-time'](req, res).toString())}ms`
+    ].join('\t\t'),
+    {
+      stream: fs.createWriteStream(path.join(__dirname, './logs/log.txt'), { flags: 'a' })
+    }
+  )
+);
 
 app.use(bodyParser.urlencoded({
   extended: true
