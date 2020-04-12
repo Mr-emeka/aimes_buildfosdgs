@@ -39,10 +39,9 @@ module.exports = async (request) => {
       error: false,
       message: {
         data,
-        estimate: {
-          impact,
-          severeImpact
-        }
+        impact,
+        severeImpact
+
       }
     });
   }
@@ -50,10 +49,8 @@ module.exports = async (request) => {
     error: false,
     message: {
       data,
-      estimate: {
-        impact,
-        severeImpact
-      }
+      impact,
+      severeImpact
     }
   });
 };
