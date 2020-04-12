@@ -8,6 +8,7 @@ import Nav from 'react-bootstrap/Nav'
 import CovidForm from './component/Form/Form';
 import { getFromStorage } from './helpers';
 import Table from 'react-bootstrap/Table';
+import covid from './img/covid.jpg';
 
 
 function Main() {
@@ -17,7 +18,8 @@ function Main() {
     <div>
       <NavBar />
       <header>
-             <h1 className="heading-1">Covid-19 Estimator</h1>
+        <h1 className="heading-1">Covid-19 Estimator</h1>
+        <img src={covid} alt="corona virus" className="cv" />
       </header>
       <main>
         <Container className="content">
@@ -41,74 +43,77 @@ function Main() {
                   <Col sm={9}>
                     <Tab.Content>
                       <Tab.Pane eventKey="first">
-                        <Table bordered responsive>
-                          <tbody>
-                            <tr>
-                              <td>currentlyInfected</td>
-                              <td>{severeImpact.currentlyInfected}</td>
-                            </tr>
-                            <tr>
-                              <td>infectionsByRequestedTime</td>
-                              <td>{severeImpact.infectionsByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>severeCasesByRequestedTime </td>
-                              <td>{severeImpact.severeCasesByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>totalHospitalBedsByRequestedTime </td>
-                              <td>{severeImpact.totalHospitalBedsByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>casesForICUByRequestedTime</td>
-                              <td>{severeImpact.casesForICUByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>casesForVentilatorsByRequestedTime</td>
-                              <td>{severeImpact.casesForVentilatorsByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>dollarsInFlight</td>
-                              <td>{severeImpact.dollarsInFlight}</td>
-                            </tr>
+                        <section>
+                          <Table striped bordered hover responsive>
+                            <tbody>
+                              <tr>
+                                <td>currentlyInfected</td>
+                                <td>{severeImpact.currentlyInfected}</td>
+                              </tr>
+                              <tr>
+                                <td>infectionsByRequestedTime</td>
+                                <td>{severeImpact.infectionsByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>severeCasesByRequestedTime </td>
+                                <td>{severeImpact.severeCasesByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>hospitalBedsByRequestedTime </td>
+                                <td>{severeImpact.hospitalBedsByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>casesForICUByRequestedTime</td>
+                                <td>{severeImpact.casesForICUByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>casesForVentilatorsByRequestedTime</td>
+                                <td>{severeImpact.casesForVentilatorsByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>dollarsInFlight</td>
+                                <td>{severeImpact.dollarsInFlight}</td>
+                              </tr>
 
-                          </tbody>
-                        </Table>
+                            </tbody>
+                          </Table>
+                        </section>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <Table bordered responsive>
-                          <tbody>
-                            <tr>
-                              <td>currentlyInfected</td>
-                              <td>{impact.currentlyInfected}</td>
-                            </tr>
-                            <tr>
-                              <td>infectionsByRequestedTime</td>
-                              <td>{impact.infectionsByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>severeCasesByRequestedTime </td>
-                              <td>{impact.severeCasesByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>totalHospitalBedsByRequestedTime </td>
-                              <td>{impact.totalHospitalBedsByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>casesForICUByRequestedTime</td>
-                              <td>{impact.casesForICUByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>casesForVentilatorsByRequestedTime</td>
-                              <td>{impact.casesForVentilatorsByRequestedTime}</td>
-                            </tr>
-                            <tr>
-                              <td>dollarsInFlight</td>
-                              <td>{impact.dollarsInFlight}</td>
-                            </tr>
-
-                          </tbody>
-                        </Table>
+                        <section>
+                          <Table striped bordered hover responsive>
+                            <tbody>
+                              <tr>
+                                <td>currentlyInfected</td>
+                                <td>{impact.currentlyInfected}</td>
+                              </tr>
+                              <tr>
+                                <td>infectionsByRequestedTime</td>
+                                <td>{impact.infectionsByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>severeCasesByRequestedTime </td>
+                                <td>{impact.severeCasesByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>hospitalBedsByRequestedTime </td>
+                                <td>{impact.hospitalBedsByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>casesForICUByRequestedTime</td>
+                                <td>{impact.casesForICUByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>casesForVentilatorsByRequestedTime</td>
+                                <td>{impact.casesForVentilatorsByRequestedTime}</td>
+                              </tr>
+                              <tr>
+                                <td>dollarsInFlight</td>
+                                <td>{impact.dollarsInFlight}</td>
+                              </tr>
+                            </tbody>
+                          </Table>
+                        </section>
                       </Tab.Pane>
                     </Tab.Content>
                   </Col>

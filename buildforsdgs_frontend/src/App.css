@@ -6,7 +6,8 @@
 }
 
 body {
-    background: rgb(250, 250, 250);
+    background: rgb(224, 224, 224);
+    color: black;
 }
 
 .content {
@@ -14,6 +15,26 @@ body {
 }
 
 .heading-1 {
-    font-size: 1.4em;
+    font-size: 2em;
     text-align: center;
+}
+
+a:visited {
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+header {
+    text-align: center;
+}
+
+img.cv {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    float: left;
+    margin: 10px;
 }

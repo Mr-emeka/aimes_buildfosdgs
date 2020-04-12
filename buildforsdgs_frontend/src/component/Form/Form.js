@@ -1,10 +1,10 @@
-import React, { useState, useRef} from 'react';
+import React, { useState, useRef } from 'react';
 import MyButton from '../Button/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './form.css';
 import covid19ImpactEstimator from '../../estimator.js';
-import{saveToStorage} from '../../helpers';
+import { saveToStorage } from '../../helpers';
 
 function CovidForm() {
     const form = useRef();
@@ -12,11 +12,11 @@ function CovidForm() {
     const [timeToElapse, setTimeToElapse] = useState(0)
     const [reportedCases, setReportedCases] = useState(0);
     const [totalHospitalBeds, setTotalHospitalBeds] = useState(0)
-    const [periodType, setPeriodType] = useState(' ')
+    const [periodType, setPeriodType] = useState('days')
     const [loading, setLoading] = useState(false);
 
     const [regionName, setRegionName] = useState('');
-    const [regionAvgAge, setRegionAvgAge] = useState(0); 
+    const [regionAvgAge, setRegionAvgAge] = useState(0);
     const [regionAvgDailyIncomeInUSD, setRegionAvgDailyIncomeInUSD] = useState(0);
     const [regionAvgDailyIncomePopulation, setRegionAvgDailyIncomePopulation] = useState(0);
 
@@ -26,50 +26,54 @@ function CovidForm() {
         setLoading(true);
         const input = {}
         input.region = {
-            name:regionName,
-            avgAge:regionAvgAge,
-            avgDailyIncomeInUSD:regionAvgDailyIncomeInUSD,
-            avgDailyIncomePopulation:regionAvgDailyIncomePopulation
+            name: regionName,
+            avgAge: regionAvgAge,
+            avgDailyIncomeInUSD: regionAvgDailyIncomeInUSD,
+            avgDailyIncomePopulation: regionAvgDailyIncomePopulation
         }
-        input.population= population;
+        input.population = population;
         input.timeToElapse = timeToElapse;
         input.reportedCases = reportedCases;
-        input.totalHospitalBeds= totalHospitalBeds;
-        input.periodType=periodType;
-      
-      let {data,severeImpact,impact} = covid19ImpactEstimator(input)
-      saveToStorage('data',data);
-      saveToStorage('severeImpact',severeImpact);
-      saveToStorage('impact',impact);
-    
-      setLoading(false);
-      window.location.reload()
+        input.totalHospitalBeds = totalHospitalBeds;
+        input.periodType = periodType;
+
+        let { data, severeImpact, impact } = covid19ImpactEstimator(input)
+        saveToStorage('data', data);
+        saveToStorage('severeImpact', severeImpact);
+        saveToStorage('impact', impact);
+
+        setLoading(false);
+        window.location.reload()
     }
-    
+
 
     return (
         <form ref={form} >
             <Row className="form-group">
                 <Col md={6} className="formcol" >
-                    <input type="number" placeholder="Population" data-population min="1" onChange={(e)=>{setPopulation(e.target.value)}}/>
+                    <label for="population">Population</label>
+                    <input type="number" placeholder="Population" data-population min="1" onChange={(e) => { setPopulation(e.target.value) }} required />
                 </Col>
                 <Col md={6} className="formcol">
-                    <input type="number" placeholder="Time To Elapse" data-time-to-elapse min="1" onChange={(e)=>{setTimeToElapse(e.target.value)}}/>
+                    <label for="">Time To Elapse</label>
+                    <input type="number" placeholder="Time To Elapse" data-time-to-elapse min="1" onChange={(e) => { setTimeToElapse(e.target.value) }} required />
                 </Col>
 
             </Row>
             <Row className="form-group">
                 <Col md={6} className="formcol">
-                    <input type="number" placeholder="Reported Cases" data-reported-cases min="1"  onChange={(e)=>{setReportedCases(e.target.value)}} />
+                    <label for="reportedCases">Number of Reported Cases</label>
+                    <input type="number" placeholder="Reported Cases" data-reported-cases min="1" onChange={(e) => { setReportedCases(e.target.value) }} required />
                 </Col>
                 <Col md={6} className="formcol">
-                    <input type="number" placeholder="Total Hospital Beds" data-total-hospital-beds min="1" onChange={(e)=>{setTotalHospitalBeds(e.target.value)}} />
+                    <label for="totalHospitalBeds">Total Number of Hospital Beds</label>
+                    <input type="number" placeholder="Total Hospital Beds" data-total-hospital-beds min="1" onChange={(e) => { setTotalHospitalBeds(e.target.value) }} required />
                 </Col>
             </Row>
             <Row className="form-group">
                 <Col md={12} className="formcol">
-                 Estimate for:{' '}
-                    <select data-period-type value={periodType} onChange={(e)=>(setPeriodType(e.target.value))}>
+                    <label for="periodType">Period Type</label>
+                    <select name="periodType" data-period-type value={periodType} onChange={(e) => (setPeriodType(e.target.value))}>
                         <option>days</option>
                         <option>weeks</option>
                         <option>Months</option>
@@ -78,19 +82,23 @@ function CovidForm() {
             </Row>
             <Row className="form-group">
                 <Col md={6} className="formcol">
-                    <input type="text" placeholder="Region Name" data-region-name value={regionName} onChange={(e=>setRegionName(e.target.value))}/>
+                    <label for="regionName">Name</label>
+                    <input type="text" placeholder="Region Name" data-region-name value={regionName} onChange={(e => setRegionName(e.target.value))} required />
                 </Col>
                 <Col md={6} className="formcol">
-                    <input type="number" placeholder="Region AvgerageAge" data-region-avgage  onChange={e=>setRegionAvgAge(e.target.value)}/>
+                    <label for="regionAvgAge">Average Age</label>
+                    <input type="number" placeholder="Region AvgerageAge" data-region-avgage onChange={e => setRegionAvgAge(e.target.value)} required />
                 </Col>
             </Row>
             <Row className="form-group">
                 <Col md={6} className="formcol">
-                    <input type="number" placeholder="Region Average Daily IncomeInUSD" data-region-avgdailyincomeinusd min="1"  onChange={e=>setRegionAvgDailyIncomeInUSD(e.target.value)}/>
+                    <label for="regionAvgDailyIncomeInUSD">Average Daily Income In USD</label>
+                    <input type="number" placeholder="Region Average Daily IncomeInUSD" data-region-avgdailyincomeinusd min="1" onChange={e => setRegionAvgDailyIncomeInUSD(e.target.value)} required />
                 </Col>
                 <Col md={6} className="formcol">
-                    <input type="number" placeholder="Region Average Daily Income Population" data-region-avgdailyincomepopulation min="1" onChange={e=>setRegionAvgDailyIncomePopulation(e.target.value)}
-                    />
+                    <label for="regionAvgDailyIncomePopulation">Percentage of Population With Average Daily Income</label>
+                    <input type="number" placeholder="Region Average Daily Income Population" data-region-avgdailyincomepopulation min="1" onChange={e => setRegionAvgDailyIncomePopulation(e.target.value)}
+                        required />
                 </Col>
 
             </Row>
