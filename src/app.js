@@ -6,7 +6,6 @@ const logger = require('morgan');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-const xmlParser = require('express-xml-bodyparser');
 const { router } = require('./routes/index');
 const swaggerDocument = require('../swagger.json');
 
@@ -22,7 +21,7 @@ app.use(cors());
 app.use(logger('dev'));
 
 // create log folder
-fs.mkdirSync(path.join(__dirname, './logs/'));
+// fs.mkdirSync(path.join(__dirname, './logs/'));
 app.use(
   logger(
     (tokens, req, res) => [
@@ -43,16 +42,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// This will parse any XML-based request and place it as a JavaScript object on req.body for your route handlers to use.
-
-app.use(xmlParser({
-  charkey: 'value',
-  trim: false,
-  explicitRoot: false,
-  explicitArray: false,
-  normalizeTags: false,
-  mergeAttrs: true
-}));
 
 app.use(bodyParser.json());
 
