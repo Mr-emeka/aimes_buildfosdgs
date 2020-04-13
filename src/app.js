@@ -21,7 +21,7 @@ app.use(cors());
 app.use(logger('dev'));
 
 // create log folder
-// fs.mkdirSync(path.join(__dirname, './logs/'));
+fs.mkdirSync(path.join(__dirname, './logs/'));
 app.use(
   logger(
     (tokens, req, res) => [
