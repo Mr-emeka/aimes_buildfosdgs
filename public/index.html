@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="covid19 estimator spa for buildforsgds">
+    <title>build for sdgs</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <!-- <img src="./assets/img/sdgs.png" alt="sdgs" class="sdgs-img" /> -->
+            <h1>Covid-19 Estimator</h1>
+            <h4>
+                Build for SDGs
+            </h4>
+        </div>
+
+    </header>
+    <main>
+        <div>
+            <form>
+
+                <div class="formdiv">
+                    <label for="population">Population</label>
+                    <input type="number" id="population" placeholder="Population" data-population min="1" required />
+                </div>
+                <div class="formdiv">
+                    <label for="timeToElapse">Time To Elapse</label>
+                    <input type="number" id="timeToElapse" placeholder="Time To Elapse" data-time-to-elapse min="1"
+                        required />
+                </div>
+                <div class="form-group">
+                    <div class="formdiv">
+                        <label for="reportedCases">Number of Reported Cases</label>
+                        <input type="number" id="reportedCases" placeholder="Reported Cases" data-reported-cases min="1"
+                            required />
+                    </div>
+                    <div class="formdiv">
+                        <label for="totalHospitalBeds">Total Number of Hospital Beds</label>
+                        <input type="number" id="totalHospitalBeds" placeholder="Total Hospital Beds"
+                            data-total-hospital-beds min="1" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="formdiv">
+                        <label for="periodType">Period Type</label>
+                        <select name="periodType" id="periodType" data-period-type>
+                            <option>days</option>
+                            <option>weeks</option>
+                            <option>Months</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="formdiv">
+                        <label for="regionName">Name</label>
+                        <input type="text" id="regionName" placeholder="Region Name" data-region-name required />
+                    </div>
+                    <div class="formdiv">
+                        <label for="regionAvgAge">Average Age</label>
+                        <input type="number" id="regionAvgAge" placeholder="Region AvgerageAge" data-region-avgage />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="formdiv">
+                        <label for="regionAvgDailyIncomeInUSD">Average Daily Income In USD</label>
+                        <input type="number" id="regionAvgDailyIncomeInUSD"
+                            placeholder="Region Average Daily IncomeInUSD" data-region-avgdailyincomeinusd min="1"
+                            required />
+                    </label>
+                    <div class="formdiv">
+                        <label for="regionAvgDailyIncomePopulation">Percentage of Population With Average Daily
+                            Income</label>
+                        <input type="number" id="regionAvgDailyIncomePopulation" placeholder="Region Average Daily Income Population"
+                            data-region-avgdailyincomepopulation min="1" required />
+                    </div>
+                    <button data-go-estimate class="btn-primary">Estimate</button>
+            </form>
+
+        </div>
+
+        </div>
+
+        <div>
+
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>Designed with <span class="emoji">💓</span> by <a class="link"
+                    href="https://github.com/mr-emeka">Aimes</a></p>
+            <p>&copy;2020</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>
