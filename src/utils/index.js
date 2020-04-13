@@ -6,17 +6,15 @@ class ResponseError extends Error {
 }
 
 class Response {
-  constructor(status, data, estimate) {
+  constructor(status, data) {
     this.status = status;
     this.data = data;
-    this.estimate = estimate;
   }
 }
 class XMLResponse {
-  constructor(status, data, estimate) {
+  constructor(status, data) {
     this.status = status;
     this.data = data;
-    this.estimate = estimate;
   }
 }
 module.exports = {
