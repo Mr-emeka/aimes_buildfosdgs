@@ -22,8 +22,8 @@ body {
 }
 
 .sdgs-img {
-    max-width: 10vw;
-    max-height: 10vh;
+    width: 40vw;
+    margin-bottom: 5px;
 }
 
 .header {

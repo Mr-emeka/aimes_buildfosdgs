@@ -27,27 +27,29 @@
 
                 <div class="formdiv">
                     <label for="population">Population</label>
-                    <input type="number" placeholder="Population" data-population min="1" required />
+                    <input type="number" id="population" placeholder="Population" data-population min="1" required />
                 </div>
                 <div class="formdiv">
-                    <label for="">Time To Elapse</label>
-                    <input type="number" placeholder="Time To Elapse" data-time-to-elapse min="1" required />
+                    <label for="timeToElapse">Time To Elapse</label>
+                    <input type="number" id="timeToElapse" placeholder="Time To Elapse" data-time-to-elapse min="1"
+                        required />
                 </div>
                 <div class="form-group">
                     <div class="formdiv">
                         <label for="reportedCases">Number of Reported Cases</label>
-                        <input type="number" placeholder="Reported Cases" data-reported-cases min="1" required />
+                        <input type="number" id="reportedCases" placeholder="Reported Cases" data-reported-cases min="1"
+                            required />
                     </div>
                     <div class="formdiv">
                         <label for="totalHospitalBeds">Total Number of Hospital Beds</label>
-                        <input type="number" placeholder="Total Hospital Beds" data-total-hospital-beds min="1"
-                            required />
+                        <input type="number" id="totalHospitalBeds" placeholder="Total Hospital Beds"
+                            data-total-hospital-beds min="1" required />
                     </div>
                 </div>
                 <div class="form-group">
-                    <div md={12} class="formdiv">
+                    <div class="formdiv">
                         <label for="periodType">Period Type</label>
-                        <select name="periodType" data-period-type>
+                        <select name="periodType" id="periodType" data-period-type>
                             <option>days</option>
                             <option>weeks</option>
                             <option>Months</option>
@@ -57,23 +59,24 @@
                 <div class="form-group">
                     <div class="formdiv">
                         <label for="regionName">Name</label>
-                        <input type="text" placeholder="Region Name" data-region-name required />
+                        <input type="text" id="regionName" placeholder="Region Name" data-region-name required />
                     </div>
                     <div class="formdiv">
                         <label for="regionAvgAge">Average Age</label>
-                        <input type="number" placeholder="Region AvgerageAge" data-region-avgage />
+                        <input type="number" id="regionAvgAge" placeholder="Region AvgerageAge" data-region-avgage />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="formdiv">
                         <label for="regionAvgDailyIncomeInUSD">Average Daily Income In USD</label>
-                        <input type="number" placeholder="Region Average Daily IncomeInUSD"
-                            data-region-avgdailyincomeinusd min="1" required />
+                        <input type="number" id="regionAvgDailyIncomeInUSD"
+                            placeholder="Region Average Daily IncomeInUSD" data-region-avgdailyincomeinusd min="1"
+                            required />
                     </label>
                     <div class="formdiv">
                         <label for="regionAvgDailyIncomePopulation">Percentage of Population With Average Daily
                             Income</label>
-                        <input type="number" placeholder="Region Average Daily Income Population"
+                        <input type="number" id="regionAvgDailyIncomePopulation" placeholder="Region Average Daily Income Population"
                             data-region-avgdailyincomepopulation min="1" required />
                     </div>
                     <button data-go-estimate class="btn-primary">Estimate</button>
