@@ -35,8 +35,8 @@ const estimate = async (request) => {
 
   return new Response(201, {
     error: false,
-    message: {
-      data,
+    data,
+    estimate: {
       impact,
       severeImpact
     }
@@ -75,11 +75,10 @@ const estimateforXml = async (request) => {
 
   return new XMLResponse(201, {
     error: false,
-    message: {
-      data,
+    data,
+    estimate: {
       impact,
       severeImpact
-
     }
   });
 };
@@ -116,8 +115,8 @@ const estimateforJson = async (request) => {
   const { data, impact, severeImpact } = covid19ImpactEstimator(input);
   return new Response(201, {
     error: false,
-    message: {
-      data,
+    data,
+    estimate: {
       impact,
       severeImpact
     }
